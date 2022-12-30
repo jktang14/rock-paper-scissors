@@ -38,4 +38,13 @@ function game() {
         let allLower = userAnswer[0].toUpperCase() + userAnswer.slice(1).toLowerCase();
         console.log(playRound(allLower, getComputerChoice()));
     }
+    if (userScore === computerScore) {
+        console.log("Tie");
+     }
+     else if (userScore > computerScore) {
+         console.log("Congratulations, you won!");
+     }
+     else {
+         console.log("You lost :( Try again!");
+     }
 }
