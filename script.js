@@ -41,10 +41,10 @@ function game() {
     if (userScore === computerScore) {
         console.log("Tie");
      }
-     else if (userScore > computerScore) {
+    else if (userScore > computerScore) {
          console.log("Congratulations, you won!");
      }
-     else {
+    else {
          console.log("You lost :( Try again!");
      }
 }
