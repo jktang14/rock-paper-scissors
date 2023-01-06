@@ -7,11 +7,15 @@ function getComputerChoice() {
     return choices[pose];
 }
 
+// Create div in body
+let results = document.createElement('div');
+document.body.appendChild('results');
+
 // Play round and declare winner
 function playRound(e, playerSelection, computerSelection) {
     playerSelection = e.target.innerText;
     if (playerSelection === computerSelection) {
-        return `Its a tie!\nUser score: ${userScore}\nComputer score: ${computerScore}`;
+        let `Its a tie!\nUser score: ${userScore}\nComputer score: ${computerScore}`;
     }
     else if (playerSelection === "Rock" && computerSelection === "Scissors") {
         return `You win! Rock beats scissors\nUser score: ${userScore += 1}\nComputer score: ${computerScore}`;
@@ -34,12 +38,10 @@ function playRound(e, playerSelection, computerSelection) {
 }
 
 let buttons = document.querySelectorAll('button');
-buttons.forEach(choice => choice.addEventListener('click', playRound));
+let text = buttons.forEach(choice => choice.addEventListener('click', playRound));
 
 function game() {
     for (i = 0; i < 5; i++) {
-        let userAnswer = prompt("Choose your attack! Scissors, Paper or Rock");
-        let allLower = userAnswer[0].toUpperCase() + userAnswer.slice(1).toLowerCase();
         console.log(playRound(allLower, getComputerChoice()));
     }
     if (userScore === computerScore) {
