@@ -8,7 +8,8 @@ function getComputerChoice() {
 }
 
 // Play round and declare winner
-function playRound(playerSelection, computerSelection) {
+function playRound(e, playerSelection, computerSelection) {
+    playerSelection = e.target.innerText;
     if (playerSelection === computerSelection) {
         return `Its a tie!\nUser score: ${userScore}\nComputer score: ${computerScore}`;
     }
@@ -31,6 +32,9 @@ function playRound(playerSelection, computerSelection) {
         return `You win! Paper beats rock\nUser score: ${userScore += 1}\nComputer score: ${computerScore}`;
     }
 }
+
+let buttons = document.querySelectorAll('button');
+buttons.forEach(choice => choice.addEventListener('click', playRound));
 
 function game() {
     for (i = 0; i < 5; i++) {
