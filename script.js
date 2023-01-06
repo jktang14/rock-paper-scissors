@@ -9,32 +9,35 @@ function getComputerChoice() {
 
 // Create div in body
 let results = document.createElement('div');
-document.body.appendChild('results');
+document.body.appendChild(results);
 
 // Play round and declare winner
 function playRound(e, playerSelection, computerSelection) {
-    playerSelection = e.target.innerText;
+    playerSelection = e.target.textContent;
+    computerSelection = getComputerChoice();
+    let paragraph = document.createElement('p');
     if (playerSelection === computerSelection) {
-        let `Its a tie!\nUser score: ${userScore}\nComputer score: ${computerScore}`;
+        paragraph.textContent = `Its a tie!\nUser score: ${userScore}\nComputer score: ${computerScore}`;
     }
     else if (playerSelection === "Rock" && computerSelection === "Scissors") {
-        return `You win! Rock beats scissors\nUser score: ${userScore += 1}\nComputer score: ${computerScore}`;
+        paragraph.textContent = `You win! Rock beats scissors\nUser score: ${userScore += 1}\nComputer score: ${computerScore}`;
     }
     else if (playerSelection === "Rock" && computerSelection === "Paper") {
-        return `You lose! Paper beats rock\nUser score: ${userScore}\nComputer score: ${computerScore += 1}`;    
+        paragraph.textContent = `You lose! Paper beats rock\nUser score: ${userScore}\nComputer score: ${computerScore += 1}`;    
     }
     else if (playerSelection === "Scissors" && computerSelection === "Rock") {
-        return `You lose! Rock beats scissors\nUser score: ${userScore}\nComputer score: ${computerScore += 1}`;
+        paragraph.textContent = `You lose! Rock beats scissors\nUser score: ${userScore}\nComputer score: ${computerScore += 1}`;
     }
     else if (playerSelection === "Scissors" && computerSelection === "Paper") {
-        return `You win! Scissors beats paper"\nUser score: ${userScore += 1}\nComputer score: ${computerScore}`;
+        paragraph.textContent = `You win! Scissors beats paper"\nUser score: ${userScore += 1}\nComputer score: ${computerScore}`;
     }
     else if (playerSelection === "Paper" && computerSelection === "Scissors") {
-        return `You lose! Scissors beats paper\nUser score: ${userScore}\nComputer score: ${computerScore += 1}`;
+        paragraph.textContent = `You lose! Scissors beats paper\nUser score: ${userScore}\nComputer score: ${computerScore += 1}`;
     }
     else if (playerSelection === "Paper" && computerSelection === "Rock") {
-        return `You win! Paper beats rock\nUser score: ${userScore += 1}\nComputer score: ${computerScore}`;
+        paragraph.textContent = `You win! Paper beats rock\nUser score: ${userScore += 1}\nComputer score: ${computerScore}`;
     }
+    results.appendChild(paragraph);
 }
 
 let buttons = document.querySelectorAll('button');
