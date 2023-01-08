@@ -13,6 +13,7 @@ document.body.appendChild(results);
 
 // Play round and declare winner
 function playRound(e, playerSelection, computerSelection) {
+    this.classList.add('playing');
     playerSelection = e.target.textContent;
     computerSelection = getComputerChoice();
     let paragraph = document.createElement('p');
@@ -54,3 +55,9 @@ function playRound(e, playerSelection, computerSelection) {
 
 let buttons = document.querySelectorAll('button');
 let text = buttons.forEach(choice => choice.addEventListener('click', playRound));
+
+function endTransition(e) {
+    this.classList.remove('playing');
+}
+
+buttons.forEach(choice => choice.addEventListener('transitionend', endTransition));
