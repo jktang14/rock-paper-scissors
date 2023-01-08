@@ -10,6 +10,7 @@ function getComputerChoice() {
 
 // Create div in body
 let results = document.createElement('div');
+results.classList.add('center')
 document.body.appendChild(results);
 
 // Play round and declare winner
