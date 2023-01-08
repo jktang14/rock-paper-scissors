@@ -31,3 +31,8 @@ button {
     height: 15%;
     gap: 200px;
 }
+
+.center {
+    text-align: center;
+    font-size: 3.8em;
+}
