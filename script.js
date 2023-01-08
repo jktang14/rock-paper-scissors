@@ -2,6 +2,7 @@ let choices = ['Rock', 'Paper', 'Scissors'];
 let userScore = 0;
 let computerScore = 0;
 let paragraph = document.createElement('p');
+let winner;
 // Return rock,paper,scissors randomly
 function getComputerChoice() {
     let pose = Math.floor(Math.random() * 3);
@@ -15,10 +16,12 @@ document.body.appendChild(results);
 
 // Play round and declare winner
 function playRound(e, playerSelection, computerSelection) {
+    if (results.contains(winner)) {
+        results.removeChild(winner);
+    }
     this.classList.add('playing');
     playerSelection = e.target.textContent;
     computerSelection = getComputerChoice();
-    let winner = document.createElement('p');
     if (playerSelection === computerSelection) {
         paragraph.innerHTML = `Its a tie! <br> User score: ${userScore} Computer score: ${computerScore}`;
     }
@@ -43,12 +46,16 @@ function playRound(e, playerSelection, computerSelection) {
     results.appendChild(paragraph);
 
     if (userScore === 5) {
-        buttons.forEach(choice => choice.removeEventListener('click', playRound));
+        userScore = 0;
+        computerScore = 0;
+        winner = document.createElement('p');
         winner.textContent = "Congratulations, you won!";
         results.appendChild(winner);
     }
     else if (computerScore === 5) {
-        buttons.forEach(choice => choice.removeEventListener('click', playRound));
+        userScore = 0;
+        computerScore = 0;
+        winner = document.createElement('p');
         winner.textContent = "You lost :( Try again!";
         results.appendChild(winner);
     }
