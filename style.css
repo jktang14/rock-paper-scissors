@@ -1,0 +1,9 @@
+button {
+    border-radius: 5px;
+    transition: all 0.05s;
+}
+
+.playing {
+    transform: scale(1.2);
+    box-shadow: 0 0 5px rgb(201, 201, 62);
+}
