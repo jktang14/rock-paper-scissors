@@ -2,7 +2,7 @@ let choices = ['Rock', 'Paper', 'Scissors'];
 let userScore = 0;
 let computerScore = 0;
 let paragraph = document.createElement('p');
-let winner;
+let winner = document.createElement('p');
 // Return rock,paper,scissors randomly
 function getComputerChoice() {
     let pose = Math.floor(Math.random() * 3);
@@ -48,14 +48,12 @@ function playRound(e, playerSelection, computerSelection) {
     if (userScore === 5) {
         userScore = 0;
         computerScore = 0;
-        winner = document.createElement('p');
         winner.textContent = "Congratulations, you won!";
         results.appendChild(winner);
     }
     else if (computerScore === 5) {
         userScore = 0;
         computerScore = 0;
-        winner = document.createElement('p');
         winner.textContent = "You lost :( Try again!";
         results.appendChild(winner);
     }
